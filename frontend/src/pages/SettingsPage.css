@@ -1,0 +1,72 @@
+.settings-card {
+    max-width: 680px;
+    padding: 0;
+    overflow: hidden;
+}
+
+.settings-card-header {
+    background: var(--navy);
+    padding: 18px 28px;
+}
+
+.settings-card-header h2 {
+    color: var(--white);
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.settings-card-body {
+    padding: 28px;
+}
+
+.settings-desc {
+    font-size: 14px;
+    color: var(--gray-600);
+    line-height: 1.7;
+    margin-bottom: 4px;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-sm);
+    padding: 16px;
+    background: var(--gray-100);
+}
+
+.current-key {
+    font-size: 13px;
+    color: var(--gray-600);
+    padding: 8px 12px;
+    background: #f0f7ff;
+    border: 1px solid #c0d8ff;
+    border-radius: var(--radius-sm);
+    margin-top: 12px;
+}
+
+.current-key strong {
+    color: var(--navy);
+}
+
+.key-hint {
+    font-size: 12px;
+    color: var(--gray-400);
+    margin-top: 6px;
+}
+
+.key-hint a {
+    color: var(--navy);
+    text-decoration: underline;
+}
+
+/* ── Estilos Mobile Responsive ── */
+@media (max-width: 768px) {
+    .settings-card-header {
+        padding: 16px;
+    }
+
+    .settings-card-body {
+        padding: 16px;
+    }
+
+    .settings-desc {
+        font-size: 13px;
+        padding: 12px;
+    }
+}

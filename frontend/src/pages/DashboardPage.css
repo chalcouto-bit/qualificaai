@@ -1,0 +1,83 @@
+.welcome-banner {
+    background: linear-gradient(135deg, #dbe9ff 0%, #e8f0fe 100%);
+    border-radius: var(--radius);
+    padding: 32px 36px;
+    margin-bottom: 28px;
+}
+
+.welcome-banner h2 {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+}
+
+.welcome-banner p {
+    font-size: 15px;
+    color: var(--gray-600);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.stat-card {
+    padding: 28px;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: var(--gray-600);
+    margin-bottom: 8px;
+}
+
+.stat-value {
+    font-size: 40px;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1;
+}
+
+.stat-sub {
+    font-size: 13px;
+    color: var(--gray-400);
+    margin-top: 6px;
+}
+
+/* ── Responsividade Mobile ── */
+@media (max-width: 768px) {
+    .welcome-banner {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .welcome-banner h2 {
+        font-size: 20px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .stat-card {
+        padding: 20px;
+    }
+
+    .stat-value {
+        font-size: 28px;
+    }
+}
+
+/* ── iPad / Tablet ── */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .welcome-banner {
+        padding: 24px;
+    }
+}

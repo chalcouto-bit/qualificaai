@@ -1,0 +1,129 @@
+.profile-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+/* Card Avatar */
+.profile-avatar-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+    padding: 32px 24px;
+}
+
+.avatar-wrapper {
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.profile-avatar-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--gray-200);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.avatar-change-btn {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: var(--white);
+    border: 3px solid var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.avatar-change-btn:hover {
+    background: var(--red);
+    transform: scale(1.1);
+}
+
+.avatar-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 0;
+}
+
+.avatar-email {
+    font-size: 13px;
+    color: var(--gray-400);
+    margin: 0;
+}
+
+.avatar-pending {
+    font-size: 12px;
+    color: var(--red);
+    background: #fff0f0;
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    margin-top: 8px;
+}
+
+/* Card Dados */
+.profile-data-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.profile-section-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 0 0 4px 0;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.input-readonly {
+    background: var(--gray-100) !important;
+    cursor: not-allowed;
+}
+
+.input-readonly input {
+    cursor: not-allowed;
+    color: var(--gray-400);
+}
+
+.badge-verified {
+    font-size: 12px;
+    font-weight: 600;
+    color: #198754;
+    white-space: nowrap;
+    background: #d1fae5;
+    padding: 2px 8px;
+    border-radius: 20px;
+}
+
+.profile-actions {
+    margin-top: 8px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .profile-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .profile-grid {
+        grid-template-columns: 240px 1fr;
+    }
+}

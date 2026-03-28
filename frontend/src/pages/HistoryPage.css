@@ -1,0 +1,275 @@
+.history-search-bar {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 28px;
+}
+
+.search-input-wrapper {
+    flex: 1;
+    max-width: 600px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--white);
+    border: 1.5px solid var(--gray-200);
+    border-radius: var(--radius-sm);
+    padding: 10px 16px;
+}
+
+.search-input-wrapper:focus-within {
+    border-color: var(--navy);
+}
+
+.search-input-wrapper input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+
+.error-msg {
+    background: #fff3f3;
+    border: 1px solid #ffc0c0;
+    color: var(--red-dark);
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    font-size: 13px;
+    margin-bottom: 16px;
+}
+
+.history-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 20px;
+}
+
+.no-results {
+    color: var(--gray-600);
+    text-align: center;
+    padding: 40px 0;
+}
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.timeline-item {
+    display: flex;
+    gap: 16px;
+    position: relative;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 14px;
+    top: 32px;
+    bottom: -20px;
+    width: 2px;
+    background: var(--gray-200);
+}
+
+.timeline-item:last-child::before {
+    display: none;
+}
+
+.timeline-dot {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--navy);
+    flex-shrink: 0;
+    margin-top: 18px;
+    border: 3px solid var(--white);
+    box-shadow: 0 0 0 2px var(--navy);
+}
+
+.visit-card {
+    flex: 1;
+    margin-bottom: 20px;
+}
+
+.visit-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.badge-5q {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.badge-3a {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.fase {
+    font-size: 12px;
+    color: var(--gray-600);
+    margin-left: 8px;
+}
+
+.visit-date {
+    font-size: 13px;
+    color: var(--gray-400);
+    white-space: nowrap;
+}
+
+/* Informações de cabeçalho do cliente */
+.history-header-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.client-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.meta-code {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--white);
+    background: var(--navy);
+    padding: 4px 10px;
+    border-radius: 4px;
+}
+
+.meta-name {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.meta-name.unknown {
+    color: var(--gray-400);
+    font-style: italic;
+    font-weight: 400;
+}
+
+/* Sections 5Q e 3A em Cards Destacados */
+.visit-body {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.visit-section {
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-sm);
+    padding: 20px;
+}
+
+.section-5q {
+    border-top: 3px solid #1d4ed8;
+    background: #f8fafc;
+}
+
+.section-3a {
+    border-top: 3px solid #065f46;
+    background: #f0fdf4;
+}
+
+.section-title-small {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 0 0 16px 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* CSS Grid para os campos */
+.visit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.grid-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.grid-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--gray-500);
+    text-transform: capitalize;
+}
+
+.grid-value {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.5;
+}
+
+.topbar-brand {
+    font-weight: 700;
+    color: var(--navy);
+}
+
+.topbar-sep {
+    color: var(--gray-400);
+    margin: 0 6px;
+}
+
+.topbar-sub {
+    color: var(--gray-600);
+}
+
+/* ── Estilos Mobile Responsive ── */
+@media (max-width: 768px) {
+    .client-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .meta-name {
+        font-size: 15px;
+    }
+
+    .visit-card {
+        padding: 16px;
+    }
+
+    .visit-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .visit-section {
+        padding: 14px;
+    }
+
+    .history-header-info {
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+    }
+}
