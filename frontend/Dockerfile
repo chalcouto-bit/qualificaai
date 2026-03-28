@@ -12,7 +12,9 @@ COPY . .
 # No EasyPanel, configure-as como "Build Args" (não como env vars de runtime)
 ARG VITE_SUPABASE_URL
 ARG VITE_SUPABASE_ANON_KEY
-ARG VITE_API_URL=/api
+# ⚠️ CRÍTICO: deve ser a URL COMPLETA do backend com /api no final
+# Ex: https://vibe-code-backend.uswynw.easypanel.host/api
+ARG VITE_API_URL
 
 ENV VITE_SUPABASE_URL=$VITE_SUPABASE_URL
 ENV VITE_SUPABASE_ANON_KEY=$VITE_SUPABASE_ANON_KEY

@@ -4,7 +4,7 @@ import Sidebar from '../components/Sidebar'
 import Topbar from '../components/Topbar'
 import './ChatPage.css'
 
-const API = '/api'
+const API = import.meta.env.VITE_API_URL || '/api'
 
 function FichaCard({ content }) {
     return (

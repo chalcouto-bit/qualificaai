@@ -4,7 +4,7 @@ import Sidebar from '../components/Sidebar'
 import Topbar from '../components/Topbar'
 import './UploadPage.css'
 
-const API = '/api'
+const API = import.meta.env.VITE_API_URL || '/api'
 
 export default function UploadPage() {
     const { session } = useAuth()
