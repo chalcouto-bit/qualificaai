@@ -20,7 +20,7 @@ export default function LoginPage() {
             await signIn(email, password)
             navigate('/dashboard')
         } catch (err) {
-            setError('Email ou senha incorretos. Tente novamente.')
+            setError(err.message || 'Erro ao comunicar com o servidor. Tente novamente.')
         } finally {
             setLoading(false)
         }
