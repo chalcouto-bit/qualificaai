@@ -93,13 +93,13 @@ export default function UploadPage() {
                             onDrop={handleDrop}
                             onClick={() => fileInput.current?.click()}
                         >
-                            <input ref={fileInput} type="file" accept=".csv" hidden onChange={e => handleFile(e.target.files[0])} />
+                            <input ref={fileInput} type="file" accept=".csv,.xlsx,.xls" hidden onChange={e => handleFile(e.target.files[0])} />
                             <span className="drop-icon">☁️</span>
-                            <p>Arraste e solte sua planilha de clientes aqui (.csv) ou</p>
+                            <p>Arraste e solte sua planilha de clientes aqui (.csv ou .xlsx) ou</p>
                             <button className="btn btn-primary" type="button" style={{ pointerEvents: 'none' }}>
                                 Procurar Arquivos
                             </button>
-                            <p className="drop-hint">Colunas esperadas: <code>codigo_cliente</code>, <code>nome</code></p>
+                            <p className="drop-hint">Colunas esperadas: <code>codigo_cliente</code>, <code>nome</code> — Formatos: CSV ou Excel (.xlsx)</p>
                         </div>
 
                         {/* Status do arquivo */}

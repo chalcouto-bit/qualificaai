@@ -25,10 +25,12 @@ CREATE POLICY "Usuário vê apenas suas configurações"
 -- ----------------------
 CREATE TABLE IF NOT EXISTS clients (
   id               uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-  codigo_cliente   text UNIQUE NOT NULL,
+  codigo_cliente   text NOT NULL,
   nome             text NOT NULL,
   user_id          uuid REFERENCES auth.users(id) ON DELETE CASCADE NOT NULL,
-  created_at       timestamptz DEFAULT now()
+  created_at       timestamptz DEFAULT now(),
+  -- Cada vendedor tem seu próprio espaço de códigos de cliente
+  UNIQUE (codigo_cliente, user_id)
 );
 
 ALTER TABLE clients ENABLE ROW LEVEL SECURITY;
@@ -65,3 +67,10 @@ CREATE INDEX IF NOT EXISTS idx_visits_codigo_cliente ON visits(codigo_cliente);
 CREATE INDEX IF NOT EXISTS idx_visits_user_id ON visits(user_id);
 CREATE INDEX IF NOT EXISTS idx_clients_user_id ON clients(user_id);
 CREATE INDEX IF NOT EXISTS idx_clients_codigo ON clients(codigo_cliente);
+
+-- -------------------------------------------------------
+-- MIGRAÇÃO: Se a tabela clients já existe com a constraint antiga,
+-- execute estes comandos no SQL Editor do Supabase:
+-- -------------------------------------------------------
+-- ALTER TABLE clients DROP CONSTRAINT IF EXISTS clients_codigo_cliente_key;
+-- ALTER TABLE clients ADD CONSTRAINT clients_codigo_user_unique UNIQUE (codigo_cliente, user_id);
