@@ -28,9 +28,8 @@ FROM nginx:alpine
 # Copia o build estático
 COPY --from=build /app/dist /usr/share/nginx/html
 
-# Copia o template de configuração do Nginx
-# O ${BACKEND_URL} será substituído em runtime pelo envsubst
-COPY nginx.conf /etc/nginx/templates/default.conf.template
+# Copia o nginx.conf diretamente (sem envsubst - URL do backend é hardcoded)
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 
