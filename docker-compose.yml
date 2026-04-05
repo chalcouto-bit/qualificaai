@@ -32,6 +32,11 @@ services:
     restart: unless-stopped
     ports:
       - "80:80"
+    environment:
+      # BACKEND_URL é usado pelo Nginx em runtime para fazer proxy de /api/
+      # No docker-compose local: http://backend:3001
+      # No EasyPanel: use o nome interno do serviço backend (ex: http://backend:3001)
+      - BACKEND_URL=${BACKEND_URL:-http://backend:3001}
     depends_on:
       backend:
         condition: service_healthy

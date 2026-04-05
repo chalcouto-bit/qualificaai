@@ -4,7 +4,7 @@ import Sidebar from '../components/Sidebar'
 import Topbar from '../components/Topbar'
 import './HistoryPage.css'
 
-const API = '/api'
+const API = import.meta.env.VITE_API_URL || '/api'
 
 const BADGE_COLORS = {
     '5q': { label: 'Pré-visita (5Q)', className: 'badge-5q' },
@@ -75,8 +75,14 @@ export default function HistoryPage() {
             const res = await fetch(`${API}/history/${encodeURIComponent(search.trim())}`, {
                 headers: { 'Authorization': `Bearer ${session.access_token}` },
             })
+
+            const contentType = res.headers.get('content-type') || ''
+            if (!contentType.includes('application/json')) {
+                throw new Error(`Erro de comunicação com o servidor (status ${res.status}). Verifique se o backend está online.`)
+            }
+
             const data = await res.json()
-            if (!res.ok) throw new Error(data.error)
+            if (!res.ok) throw new Error(data.error || 'Erro ao buscar histórico.')
             setVisits(data.visits)
             setClientName(data.clientName)
         } catch (err) {
